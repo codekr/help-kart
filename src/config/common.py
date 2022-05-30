@@ -23,6 +23,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # 'jet.dashboard',
     # 'jet',
+    'admin_interface',
+    'colorfield',
+
     'django.contrib.admin',
     'django_elasticsearch_dsl',
     'djmoney',
@@ -38,7 +41,6 @@ INSTALLED_APPS = (
     'django_filters',  # for filtering rest endpoints
     'django_celery_beat',  # task scheduler
     "import_export_celery",
-    "colorfield",
 
     'health_check',  # required
     'health_check.db',  # stock Django health checkers
@@ -106,7 +108,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
+CELERY_TIMEZONE = 'US/Pacific'
 
 # Postgres
 DATABASES = {

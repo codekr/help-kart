@@ -5,6 +5,7 @@ from os.path import join
 
 import environ  # noqa
 import sentry_sdk
+from django.utils.translation import gettext_lazy as _
 from sentry_sdk.integrations.django import DjangoIntegration
 
 TESTING = sys.argv[1:2] == ['test']
@@ -21,10 +22,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'jet.dashboard',
-    # 'jet',
     'admin_interface',
-    'colorfield',
 
     'django.contrib.admin',
     'django_elasticsearch_dsl',
@@ -41,6 +39,7 @@ INSTALLED_APPS = (
     'django_filters',  # for filtering rest endpoints
     'django_celery_beat',  # task scheduler
     "import_export_celery",
+    'colorfield',
 
     'health_check',  # required
     'health_check.db',  # stock Django health checkers
@@ -72,6 +71,7 @@ MIDDLEWARE = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
 )
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '#p7&kxb7y^yq8ahfw5%$xh=f8=&1y*5+a5($8w_f7kw!-qig(j')
@@ -330,3 +330,10 @@ ELASTICSEARCH_DSL = {
 
 # Import & Export configuration
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+LANGUAGES = (
+    ("en", _("English")),
+    ("it", _("Italiano")),
+    ("fr", _("Française")),
+    # more than one language is expected here
+)

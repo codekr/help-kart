@@ -25,15 +25,20 @@ INSTALLED_APPS = (
     # 'jet',
     'django.contrib.admin',
     'django_elasticsearch_dsl',
+    'djmoney',
+    'import_export',
+    'django_quill',
+    'django_s3_storage',
 
     # Third party apps
-    'django_s3_storage',
     'corsheaders',  # cors handling
     'rest_framework',  # utilities for rest apis
     "drf_spectacular",  # swagger configuration
     "drf_spectacular_sidecar",  # swagger side bar configuration
     'django_filters',  # for filtering rest endpoints
     'django_celery_beat',  # task scheduler
+    "import_export_celery",
+    "colorfield",
 
     'health_check',  # required
     'health_check.db',  # stock Django health checkers
@@ -46,9 +51,6 @@ INSTALLED_APPS = (
     'health_check.contrib.s3boto3_storage',  # requires boto3 and S3BotoStorage backend
     'health_check.contrib.redis',  # requires Redis broker
     "multiselectfield",
-    'djmoney',
-    'import_export',
-    'django_quill',
 
     # Your apps
     "src.identities",
@@ -323,3 +325,6 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     },
 }
+
+# Import & Export configuration
+IMPORT_EXPORT_USE_TRANSACTIONS = True

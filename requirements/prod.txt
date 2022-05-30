@@ -31,6 +31,8 @@ django-elasticsearch-dsl==7.2.2
 django-money==2.1.1
 django-import-export==2.8.0
 django-quill-editor==0.1.40
+django-import-export-celery==1.2
+django-colorfield==0.7.0
 
 # Swagger dependecny
 drf-spectacular==0.22.1
